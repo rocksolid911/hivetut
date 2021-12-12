@@ -26,10 +26,16 @@ Future _initHive() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return
-      MaterialApp(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<HiveDataBaseService>(
+          create: (context) => HiveDataBaseService(),
+        )
+      ],
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: EmployeeListScreen(),
+      ),
     );
   }
 }
